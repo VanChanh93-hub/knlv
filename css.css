@@ -1,0 +1,558 @@
+   .hero-section {
+       background: url('img/banner/Terracotta Modern Food Presentation.png') no-repeat center center/cover;
+       color: white;
+       text-align: center;
+       padding: 150px 20px;
+       min-height: 500px;
+       display: flex; /* Sử dụng Flexbox */
+       flex-direction: column; /* Căn nội dung theo cột */
+       justify-content: center; /* Căn giữa theo chiều dọc */
+       align-items: center; /* Căn giữa theo chiều ngang */
+   }
+
+
+   .hero-section h1 {
+       font-size: 3rem;
+       font-weight: bold;
+   }
+
+   .hero-section button {
+       background-color: #FF8C00;
+       border: none;
+       padding: 10px 20px;
+       color: white;
+       font-size: 1.2rem;
+       border-radius: 5px;
+       transition: background-color 0.3s;
+   }
+
+   .hero-section button:hover {
+       background-color: #e07c00;
+   }
+
+   .footer {
+       background-color: #333;
+       color: white;
+       padding: 20px 0;
+       font-size: 0.9rem;
+   }
+
+   .footer .logo {
+       max-width: 80px;
+   }
+
+   .footer a {
+       color: #FF8C00;
+       text-decoration: none;
+   }
+
+   .footer a:hover {
+       text-decoration: underline;
+   }
+
+   .search {
+       margin-left: auto;
+       margin-right: 10px;
+       width: 300px;
+       height: 35px;
+       border: 1px solid black;
+       border-radius: 5px;
+   }
+
+   .logo {
+       max-width: 60px;
+       height: auto;
+   }
+
+   @media (max-width: 768px) {
+       .hero-section {
+           padding: 60px 20px;
+       }
+
+       .hero-section h1 {
+           font-size: 2rem;
+       }
+
+       .search {
+           width: 200px;
+       }
+
+       .footer .row {
+           text-align: center;
+       }
+
+       .footer .col-12 {
+           margin-bottom: 15px;
+       }
+
+       .navbar-nav {
+           flex-direction: column;
+           text-align: center;
+       }
+   }
+   .dangnhap {
+     background: url('img/banner/Terracotta Modern Food Presentation.png') no-repeat center center/cover;
+     position: relative; /* Để lớp phủ overlay hoạt động */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     color: white;
+     padding: 20px;
+   }
+ 
+   .dangnhap::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5); /* Overlay với độ trong suốt */
+     z-index: 1; /* Đặt lớp phủ dưới form */
+   }
+ 
+   .login-form {
+     position: relative; /* Để vượt qua lớp phủ */
+     z-index: 2;
+     background: rgba(255, 255, 255, 0.9); /* Nền trắng hơi trong suốt */
+     padding: 20px;
+     border-radius: 12px;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+     width: 100%;
+     max-width: 400px;
+   }
+ 
+   .login-form h2 {
+     margin-bottom: 20px;
+     font-size: 24px;
+     color: #333;
+     text-align: center;
+   }
+ 
+   .form-group {
+     margin-bottom: 15px;
+   }
+ 
+   .form-group label {
+     display: block;
+     font-size: 14px;
+     color: #555;
+     margin-bottom: 5px;
+   }
+ 
+   .form-group input {
+     width: 100%;
+     padding: 10px;
+     font-size: 14px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     outline: none;
+   }
+ 
+   .form-group input:focus {
+     border-color: #DE955A;
+   }
+ 
+   .login-form button {
+     width: 100%;
+     padding: 10px;
+     font-size: 16px;
+     background-color: #DE955A;
+     color: #fff;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     transition: background 0.3s ease;
+   }
+ 
+   .login-form button:hover {
+     background-color: #e6673d;
+   }
+ 
+   .login-form .extra-links {
+     margin-top: 15px;
+     text-align: center;
+     font-size: 14px;
+   }
+ 
+   .login-form .extra-links a {
+     color: #DE955A;
+     text-decoration: none;
+   }
+ 
+   .login-form .extra-links a:hover {
+     text-decoration: underline;
+   }
+   .user{
+       background-color:  #D68240;
+   }
+   .user:hover {
+     background-color: #e6673d;
+   }
+   @media (max-width: 480px) {
+     .login-form {
+       padding: 15px;
+     }
+ 
+     .login-form h2 {
+       font-size: 20px;
+     }
+ 
+     .form-group input {
+       font-size: 13px;
+     }
+ 
+     .login-form button {
+       font-size: 14px;
+     }
+   }
+   .sanpham {
+     background-color: #f9f9f9;
+     padding: 20px;
+   }
+
+   .category-container {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     margin-bottom: 40px;
+   }
+
+   .category-item {
+     background-color: white;
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     width: 250px;
+     height: 200px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     transition: transform 0.2s ease;
+     text-align: center;
+   }
+
+   .category-item:hover {
+     transform: translateY(-5px);
+   }
+
+   .category-item img {
+     width: 100px;
+     height: 100px;
+     margin-bottom: 20px;
+     border-radius: 50%;
+     object-fit: cover;
+   }
+
+   .product-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 20px;
+   }
+
+   .product-item {
+     background-color: white;
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     overflow: hidden;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     transition: transform 0.2s ease;
+   }
+
+   .product-item:hover {
+     transform: translateY(-5px);
+   }
+
+   .product-item img {
+ width: 100%;
+ height: 250px;
+ object-fit: cover;
+}
+
+
+   .product-info {
+     padding: 15px;
+     text-align: center;
+   }
+
+   .product-info h3 {
+     font-size: 18px;
+     margin-bottom: 10px;
+   }
+
+   .product-info p {
+     font-size: 16px;
+     color: #888;
+     margin-bottom: 15px;
+   }
+
+   .add-to-cart {
+     display: inline-block;
+     padding: 10px 15px;
+     background-color: #D68240;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     text-decoration: none;
+     font-size: 14px;
+     transition: background-color 0.2s ease;
+   }
+
+   .add-to-cart:hover {
+     background-color: #e6673d;
+   }
+   @media (max-width: 768px) {
+ .category-container {
+   flex-direction: column;
+   align-items: center;
+   gap: 15px;
+ }
+
+ .category-item {
+   width: 80%;
+   height: auto;
+ }
+
+ .category-item img {
+   width: 80px;
+   height: 80px;
+ }
+
+ .product-container {
+   grid-template-columns: 1fr;
+   gap: 15px;
+ }
+
+
+}
+
+@media (max-width: 480px) {
+ .category-item {
+   width: 90%;
+ }
+
+ .add-to-cart {
+   font-size: 12px;
+   padding: 8px 10px;
+ }
+}
+
+body{
+    background-color: #f9f9f9;
+}
+.chitietsanpham{
+    background-color: #ffff;
+}
+.product-details {
+  background-color: #F8F4E1;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #DE955A;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-custom {
+  background-color: #DE955A;
+  color: white;
+  border: none;
+}
+
+.btn-custom:hover {
+  background-color: #e6673d;
+}
+
+.order {
+  background: url('img/banner/Terracotta Modern Food Presentation.png') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+.order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.order-form {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+}
+.order-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+.form-group select,
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #DE955A;
+}
+.order-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #DE955A;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.order-form button:hover {
+  background-color: #e6673d;
+}
+.order-form .extra-links {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+.order-form .extra-links a {
+  color: #DE955A;
+  text-decoration: none;
+}
+.order-form .extra-links a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .order-form {
+    padding: 15px;
+  }
+  .order-form h2 {
+    font-size: 20px;
+  }
+  .form-group input {
+    font-size: 13px;
+  }
+  .order-form button {
+    font-size: 14px;
+  }
+}
+.contact-section {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #e48a4f;
+  border-radius: 12px;
+  max-width: 1200px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  flex: 1 1 50%;
+  padding: 20px;
+  color: #fff;
+}
+
+.form-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  color: #e48a4f;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #f5f5f5;
+}
+
+.image-section {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-section .logo-image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .form-section,
+  .image-section {
+    flex: 1 1 100%;
+  }
+
+  .form-section h2 {
+    text-align: center;
+  }
+}
+

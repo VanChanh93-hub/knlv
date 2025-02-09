@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a href="#"><img class="logo" src="img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-center fw-semibold">
+                    <li class="nav-item me-3"><a class="nav-link" href="trangchu.html">Trang chủ</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="sanpham.html">Sản phẩm</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="lienhe.html">Liên hệ</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="dangky.html">Đăng ký</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="dangnhap.html">Đăng nhập</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <input type="search" class="search" placeholder="Tìm kiếm">
+                    <a class="btn text-white user ms-3 p-2" href="#">Username</a>
+                    <a class="nav-link ms-3" href="#">
+                        <i class="fa fa-shopping-bag fs-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!-- Order Form -->
+<div class="order">
+  <div class="order-form">
+    <h2>Thông tin đơn hàng</h2>
+    <form action="#" method="POST">
+      <div class="form-group">
+        <label for="floor">Chọn tầng bạn muốn giao tới</label>
+        <select id="floor" name="floor">
+          <option value="ground">Tầng trệt</option>
+          <option value="first">Tầng 1</option>
+          <option value="second">Tầng 2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="room">Chọn phòng bạn muốn giao tới</label>
+        <select id="room" name="room">
+          <option value="T806">T806</option>
+          <option value="T816">T816</option>
+          <option value="T202">T202</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="contact">Số điện thoại hoặc thông tin liên lạc</label>
+        <input type="text" id="contact" name="contact" placeholder="Nhập tại đây" required>
+      </div>
+      <div class="form-group">
+        <label for="note">Ghi chú thêm nếu có</label>
+        <textarea id="note" name="note" rows="5" placeholder="Nhập tại đây"></textarea>
+      </div>
+      <button type="submit">Xác nhận</button>
+      <div class="extra-links">
+        <p><a href="#">Quay lại giỏ hàng</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row text-center text-md-start align-items-center">
+                <!-- Logo Section -->
+                <div class="col-12 col-md-3 mb-3 mb-md-0">
+                    <img class="logo mb-2" src="img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo">
+                    <p>Copyright Foodhub. Sinh viên</p>
+                </div>
+                <!-- Contact Info Section -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <p>Nếu có bất kỳ thắc mắc hoặc gẫp vấn đề gì hãy liên hệ với chúng tôi</p>
+                    <a href="#" class="btn btn-warning pe-5 ps-5 text-white">Liên hệ</a>
+                    <p class="mt-2"><i class="fab fa-facebook"></i> Tên fanpage</p>
+                </div>
+                <!-- Links Section -->
+                <div class="col-12 col-md-3">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-light ms-2">Trang</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Trang chủ</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Sản phẩm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
