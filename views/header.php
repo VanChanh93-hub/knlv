@@ -22,12 +22,20 @@
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=home">Trang chủ</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=product">Sản phẩm</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=contact">Liên hệ</a></li>
+
+                  
+
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=signup">Đăng ký</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=login">Đăng nhập</a></li>
                 </ul>
                 <div class="d-flex align-items-center">
                     <input type="search" class="search" placeholder="Tìm kiếm">
-                    <a class="btn user text-white ms-3 p-2" href="index.php?act=account">Username</a>
+                    <a class="btn user text-white ms-3 p-2" href="index.php?act=account">
+                        <?php
+                            echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] :"Username";
+                        ?>
+
+                    </a>
                     <a class="nav-link ms-3" href="index.php?act=cart">
                         <i class="fa fa-shopping-bag fs-4"></i>
                     </a>

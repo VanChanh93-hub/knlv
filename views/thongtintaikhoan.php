@@ -7,7 +7,7 @@
                 <nav class="profile-menu">
                     <a href="#">Thông tin tài khoản</a>
                     <a href="#">Lịch sử mua hàng</a>
-                    <a href="#">Đăng xuất</a>
+                    <a href="index.php?act=logout">Đăng xuất</a>
                 </nav>
             </div>
         </aside>

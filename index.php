@@ -2,6 +2,8 @@
 // Bắt đầu session nếu cần
 session_start();
 require "views/header.php";
+
+
 // Lấy tham số từ URL (vd: index.php?page=about)
 $act = isset($_GET['act']) ? $_GET['act'] : 'home';
 
@@ -39,9 +41,17 @@ switch ($act) {
         $controller->index();
         break;
     case 'account':
-        require_once 'controllers/thongtintaikhoanController.php';
-        $controller = new thongtintaikhoanController();
-        $controller->index();
+        if(isset($_SESSION['user'])){
+            require_once 'controllers/thongtintaikhoanController.php';
+            $controller = new thongtintaikhoanController();
+            $controller->index();
+        }else {
+            
+            require_once 'controllers/homeController.php';
+            $controller = new homeController();
+            $controller->index();
+        }
+
         break;
     case 'cart':
         require_once 'controllers/giohangController.php';
@@ -58,7 +68,10 @@ switch ($act) {
         $controller = new giohangController();
         $controller->index();
         break;
-
+    case 'logout':
+        unset($_SESSION['user']);
+        header('location:index.php');
+        break;
     default:
         echo "404 - Trang không tồn tại!";
         break;
