@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ Hàng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
-
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a href="#"><img class="logo" src="img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-center fw-semibold">
+                    <li class="nav-item me-3"><a class="nav-link" href="trangchu.html">Trang chủ</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="sanpham.html">Sản phẩm</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="lienhe.html">Liên hệ</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="dangky.html">Đăng ký</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="dangnhap.html">Đăng nhập</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <input type="search" class="search" placeholder="Tìm kiếm">
+                    <a class="btn user text-white ms-3 p-2" href="#">Username</a>
+                    <a class="nav-link ms-3" href="giohang.html">
+                        <i class="fa fa-shopping-bag fs-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 <div class="container cart-container">
     <h2 class="text-center mb-4 text-uppercase fw-bold">Giỏ Hàng Của Bạn</h2>
     <div class="row">
@@ -19,7 +42,7 @@
             <div class="cart-box"> 
                 <p class="fw-semibold">Bạn đang có <strong class="text-danger">3 sản phẩm</strong> trong giỏ hàng</p>
                 <div class="cart-item d-flex">
-                    <img src="https://via.placeholder.com/90" alt="Sản phẩm 1">
+                    <img src="img/product/451132357_1870573133448334_52661.webp" alt="Sản phẩm 1">
                     <div class="item-details flex-grow-1">
                         <h3 class="fw-bold text-dark">Sản phẩm 1</h3>
                         <p class="text-muted">Giá: <span class="item-price fw-bold text-danger">500,000 ₫</span></p>
@@ -47,126 +70,31 @@
         </div>
     </div>
 </div>
-
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row text-center text-md-start align-items-center">
+                <!-- Logo Section -->
+                <div class="col-12 col-md-3 mb-3 mb-md-0">
+                    <img class="logo mb-2" src="img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo">
+                    <p>Copyright Foodhub. Sinh viên</p>
+                </div>
+                <!-- Contact Info Section -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <p>Nếu có bất kỳ thắc mắc hoặc gẫp vấn đề gì hãy liên hệ với chúng tôi</p>
+                    <a href="#" class="btn btn-warning pe-5 ps-5 text-white">Liên hệ</a>
+                    <p class="mt-2"><i class="fab fa-facebook"></i> Tên fanpage</p>
+                </div>
+                <!-- Links Section -->
+                <div class="col-12 col-md-3">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-light ms-2">Trang</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Trang chủ</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Sản phẩm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
-<style>
-    body {
-        font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        background-color: #f8f9fa;
-    }
-    .cart-container {
-        padding: 40px 15px;
-    }
-    .cart-box, .order-summary {
-        background: #fff;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-    }
-    .cart-item {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #e0e0e0;
-        padding: 15px 0;
-        flex-wrap: wrap;
-    }
-    .cart-item:last-child {
-        border-bottom: none;
-    }
-    .cart-item img {
-        width: 90px;
-        height: 90px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-right: 15px;
-        transition: transform 0.3s ease;
-    }
-    .cart-item img:hover {
-        transform: scale(1.05);
-    }
-    .item-details h3 {
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-    .quantity {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-    .quantity button {
-        width: 35px;
-        height: 35px;
-        border: 1px solid #ddd;
-        background-color: #fff;
-        color: #333;
-        font-size: 16px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-    }
-    .quantity button:hover {
-        background-color: #e9ecef;
-    }
-    .quantity input {
-        width: 50px;
-        text-align: center;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        height: 35px;
-    }
-    .price-and-remove {
-        text-align: right;
-        flex-grow: 1;
-    }
-    .order-summary {
-        text-align: center;
-    }
-    .summary-title {
-        font-size: 18px;
-        font-weight: 600;
-        border-bottom: 2px solid #dc3545;
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-    }
-    .total-price {
-        font-size: 22px;
-        font-weight: bold;
-        color: #dc3545;
-    }
-    .button-link {
-        display: block;
-        width: 100%;
-        padding: 12px;
-        font-size: 16px;
-        font-weight: 600;
-        text-align: center;
-        color: #fff;
-        border-radius: 8px;
-        background-color: #f5a25d;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .button-link:hover {
-        background-color: #333;
-    }
-    @media (max-width: 768px) {
-        .cart-item {
-            flex-direction: column;
-            text-align: center;
-        }
-        .cart-item img {
-            margin-bottom: 10px;
-        }
-        .price-and-remove {
-            text-align: center;
-            margin-top: 10px;
-        }
-    }
-</style>

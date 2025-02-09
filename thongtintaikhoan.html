@@ -4,94 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông tin tài khoản</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: #f5a25d;
-            color: #fff;
-            font-size: 24px;
-            line-height: 80px;
-            text-align: center;
-            border-radius: 50%;
-            margin: 0 auto;
-        }
-        .profile-sidebar {
-            text-align: center;
-            padding: 20px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: #f5a25d;
-            color: #fff;
-            font-size: 24px;
-            line-height: 80px;
-            text-align: center;
-            border-radius: 50%;
-            margin: 0 auto;
-            font-weight: bold;
-        }
-        .profile-menu a {
-            display: block;
-            padding: 10px;
-            font-weight: 500;
-            color: #333;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .profile-menu a:hover {
-            background: #f5a25d;
-            color: #fff;
-            border-radius: 6px;
-        }
-        .card {
-            background-color: white;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .update-account-btn {
-            background-color: #DE955A;
-            color: white;
-            font-weight: bold;
-            border-radius: 25px;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        .update-account-btn:hover {
-            background-color: #333;
-            color: white;
-        }
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        @media (max-width: 768px) {
-            .profile-sidebar {
-                order: 2;
-            }
-            .main-content {
-                order: 1;
-            }
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
+
 </head>
 <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a href="#"><img class="logo" src="img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav w-100 justify-content-center fw-semibold">
+                        <li class="nav-item me-3"><a class="nav-link" href="trangchu.html">Trang chủ</a></li>
+                        <li class="nav-item me-3"><a class="nav-link" href="sanpham.html">Sản phẩm</a></li>
+                        <li class="nav-item me-3"><a class="nav-link" href="lienhe.html">Liên hệ</a></li>
+                        <li class="nav-item me-3"><a class="nav-link" href="dangky.html">Đăng ký</a></li>
+                        <li class="nav-item me-3"><a class="nav-link" href="dangnhap.html">Đăng nhập</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <input type="search" class="search" placeholder="Tìm kiếm">
+                        <a class="btn user text-white ms-3 p-2" href="#">Username</a>
+                        <a class="nav-link ms-3" href="giohang.html">
+                            <i class="fa fa-shopping-bag fs-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     <div class="container mt-5">
         <div class="row">
           <aside class="col-md-3">
@@ -113,7 +57,7 @@
                             CẬP NHẬT THÔNG TIN TÀI KHOẢN
                         </button>
                     </div>
-                    <p><strong>Họ và tên:</strong> Người dùng</p>
+                    <p><strong>Username:</strong> Người dùng</p>
                     <p><strong>Email:</strong> user@example.com</p>
                     <p><strong>Điện thoại:</strong> 0123456789</p>
                     <p><strong>Địa chỉ:</strong> Địa chỉ mẫu</p>
@@ -121,5 +65,31 @@
             </div>
         </div>
     </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row text-center text-md-start align-items-center">
+                    <!-- Logo Section -->
+                    <div class="col-12 col-md-3 mb-3 mb-md-0">
+                        <img class="logo mb-2" src="img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo">
+                        <p>Copyright Foodhub. Sinh viên</p>
+                    </div>
+                    <!-- Contact Info Section -->
+                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                        <p>Nếu có bất kỳ thắc mắc hoặc gẫp vấn đề gì hãy liên hệ với chúng tôi</p>
+                        <a href="#" class="btn btn-warning pe-5 ps-5 text-white">Liên hệ</a>
+                        <p class="mt-2"><i class="fab fa-facebook"></i> Tên fanpage</p>
+                    </div>
+                    <!-- Links Section -->
+                    <div class="col-12 col-md-3">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none text-light ms-2">Trang</a></li>
+                            <li><a href="#" class="text-decoration-none text-light">Trang chủ</a></li>
+                            <li><a href="#" class="text-decoration-none text-light">Sản phẩm</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
 </body>
 </html>
