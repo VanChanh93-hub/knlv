@@ -2,7 +2,10 @@
 // Bắt đầu session nếu cần
 session_start();
 require "views/header.php";
-
+if(isset($_SESSION['thongbao'])){
+    echo '<script>alert("'.$_SESSION['thongbao'].'")</script>';
+    unset($_SESSION['thongbao']);
+}
 
 // Lấy tham số từ URL (vd: index.php?page=about)
 $act = isset($_GET['act']) ? $_GET['act'] : 'home';
@@ -46,7 +49,7 @@ switch ($act) {
             $controller = new thongtintaikhoanController();
             $controller->index();
         }else {
-            
+
             require_once 'controllers/homeController.php';
             $controller = new homeController();
             $controller->index();
@@ -70,6 +73,8 @@ switch ($act) {
         break;
     case 'logout':
         unset($_SESSION['user']);
+        $_SESSION['thongbao'] = "Đăng Xuất Thành Công";
+
         header('location:index.php');
         break;
     default:

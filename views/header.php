@@ -13,7 +13,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <a href="#"><img class="logo" src="public/img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo"></a>
+            <a href="index.php?act=home"><img class="logo" src="public/img/logo/z6215359941229_754e80e8136e728fe0d8a2fe90863d90-removebg-preview.png" alt="Foodhub Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,7 +23,7 @@
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=product">Sản phẩm</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=contact">Liên hệ</a></li>
 
-                  
+
 
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=signup">Đăng ký</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=login">Đăng nhập</a></li>

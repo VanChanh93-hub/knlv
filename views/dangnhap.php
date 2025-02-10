@@ -1,8 +1,8 @@
 <div class="dangnhap">
         <div class="login-form">
-            <h2>Đăng nhập tài khoản</h2><?php if(isset($_SESSION['thongbao'])){
-          echo '<p class="action_login">'.$_SESSION['thongbao'] .'</p>';
-          unset($_SESSION['thongbao']);
+            <h2>Đăng nhập tài khoản</h2><?php if(isset($_SESSION['thongbaologin'])){
+          echo '<p class="action_login">'.$_SESSION['thongbaologin'] .'</p>';
+          unset($_SESSION['thongbaologin']);
       }?>
             <form action="index.php?act=login" method="POST">
               <div class="form-group">
