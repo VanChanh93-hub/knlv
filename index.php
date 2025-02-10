@@ -9,6 +9,7 @@ if(isset($_SESSION['thongbao'])){
 
 // Lấy tham số từ URL (vd: index.php?page=about)
 $act = isset($_GET['act']) ? $_GET['act'] : 'home';
+$id = isset($_GET['id']) ? $_GET['id'] : 'product';
 
 // Dùng switch-case để điều hướng
 switch ($act) {
@@ -21,12 +22,12 @@ switch ($act) {
     case 'product':
         require_once 'controllers/sanphamController.php';
         $controller = new sanphamController();
-        $controller->index();
+        $controller->index($id);
         break;
     case 'detail':
         require_once 'controllers/chitietsanphamController.php';
         $controller = new chitietsanphamController();
-        $controller->index();
+        $controller->index($id);
         break;
     case 'login':
         require_once 'controllers/dangnhapController.php';
