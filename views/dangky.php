@@ -5,7 +5,7 @@
             <h2>Đăng ký tài khoản</h2>
             <?php if(!empty($error)){
           echo '<p class="action_login">'.$error .'</p>';
-          ;
+          
       }?>
             <form action="index.php?act=signup" method="POST">
               <div class="form-group">
@@ -16,14 +16,7 @@
                 <label for="email">Địa chỉ email</label>
                 <input type="email" id="text" name="email" placeholder="Nhập địa chỉ email" required>
               </div>
-              <div class="form-group">
-                <label for="sdt">Số điện thoại</label>
-                <input type="text" id="text" name="sdt" placeholder="Nhập Số điện thoại" required>
-              </div>
-              <div class="form-group">
-                <label for="address">Địa chỉ</label>
-                <input type="text" id="text" name="address" placeholder="Nhập Địa chỉ" required>
-              </div>
+
               <div class="form-group">
                 <label for="role">Loại đăng ký</label>
                 <select name="role">

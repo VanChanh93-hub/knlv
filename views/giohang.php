@@ -28,7 +28,7 @@
                 <h2 class="summary-title">Thông Tin Đơn Hàng</h2>
                 <p class="fw-bold">Tổng cộng: <span class="total-price">1,500,000 ₫</span></p>
                 <p class="text-success fw-semibold">Phí vận chuyển: Miễn phí</p>
-                <a href="index.php?act=order"><button class="button-link">Đặt Hàng Ngay</button></a>
+                <a href="index.php?act=order" style="text-decoration: none;";><button class="button-link">Đặt Hàng Ngay</button></a>
             </div>
         </div>
     </div>

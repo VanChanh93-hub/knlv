@@ -7,21 +7,22 @@ class dangkyModel {
     {
         $this->user = new Database;
     }
-    public function addUser($username,$email,$phone,$address,$role,$password){
+    public function addUser($username,$email,$role,$password){
 
         $sql ="INSERT INTO user(username,email,phone,address,role,password)
-        VALUE (?,?,?,?,?,?)";
-        return $this->user->insert($sql,$username,$email,$phone,$address,$role,$password);
+        VALUE (?,?,'','',?,?)";
+        return $this->user->insert($sql,$username,$email,$role,$password);
     }
 
     function issetEmail($email){
         $sql ="SELECT * FROM user WHERE email=?";
         return $this->user->getOne($sql,$email);
     }
-    function issetPhone($phone){
-        $sql ="SELECT * FROM user WHERE phone=?";
-        return $this->user->getOne($sql,$phone);
+    function issetUsername($username){
+        $sql ="SELECT * FROM user WHERE username=?";
+        return $this->user->getOne($sql,$username);
     }
+    
 }
 
 ?>

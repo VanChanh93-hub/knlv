@@ -12,18 +12,17 @@ class dangkyController {
     function handleSignup(){
         $username = isset($_POST['username']) ? trim($_POST['username']) : '';
         $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-        $sdt = isset($_POST['sdt']) ? trim($_POST['sdt']) : '';
-        $address = isset($_POST['address']) ? trim($_POST['address']) : '';
         $role = isset($_POST['role']) ? trim($_POST['role']) : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirm = isset($_POST['confirm-password']) ? $_POST['confirm-password'] : '';
-        $error =$this->validateForm($username,$email,$sdt,$password,$confirm);if (!empty($error)) {
+        $error =$this->validateForm($username,$email,$password,$confirm);
+        if (!empty($error)) {
             include_once "views/dangky.php";
             return;
         }
 
         $this->user = new dangkyModel;
-        $result =$this->user->addUser($username,$email,$sdt,$address,$role,$password);
+        $result =$this->user->addUser($username,$email,$role,$password);
         if ($result) {
             $_SESSION['thongbao']="Đăng ký thành công";
             header("Location: index.php?act=login");
@@ -35,7 +34,7 @@ class dangkyController {
     }
 
 
-    public function validateForm($username,$email,$sdt, $matKhau, $reMatKhau) {
+    public function validateForm($username,$email, $matKhau, $reMatKhau) {
 
         require_once "models/dangkyModel.php";
         $dangkyModel = new dangkyModel(); // Khởi tạo đối tượng dangkyModel
@@ -47,16 +46,9 @@ class dangkyController {
         if ($dangkyModel->issetEmail($email)) {
             return"Email đã được sử dụng. Vui lòng chọn email khác.";
         }
-        if ($dangkyModel->issetPhone($sdt)) {
-            return "Số điện thoại đã được sử dụng. Vui lòng chọn Số điện thoại khác.";
+        if ($dangkyModel->issetUsername($username)) {
+            return"username đã được sử dụng. Vui lòng chọn username khác.";
         }
-
-        if (!preg_match('/^[0-9]{10}$/', $sdt)) {
-            return "Số điện thoại phải gồm 10 chữ số.";
-        }
-
-
-
 
         if ($matKhau !== $reMatKhau) {
             return "Mật khẩu và xác nhận mật khẩu không khớp.";
