@@ -29,7 +29,7 @@ class sanphamController
         } else {
             // Nếu không có id, sử dụng tất cả sản phẩm
             $allProducts = $products;
-            $categoryMessage = null; // Không có thông báo nếu có tất cả sản phẩm
+            $categoryMessage = ''; // Không có thông báo nếu có tất cả sản phẩm
         }
 
         // Load view để hiển thị sản phẩm và danh mục
