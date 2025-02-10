@@ -61,16 +61,12 @@ switch ($act) {
         $controller = new giohangController();
         $controller->index();
         break;
-    case 'orderorder':
+    case 'order':
         require_once 'controllers/donhangController.php';
         $controller = new donhangController();
         $controller->index();
         break;
-    case 'cart':
-        require_once 'controllers/giohangController.php';
-        $controller = new giohangController();
-        $controller->index();
-        break;
+    
     case 'logout':
         unset($_SESSION['user']);
         $_SESSION['thongbao'] = "Đăng Xuất Thành Công";
