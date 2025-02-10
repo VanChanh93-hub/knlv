@@ -1,5 +1,10 @@
 <main class="container-xl my-5 chitietsanpham">
+  <form action="index.php?act=cart" method="post">
   <?php if($detail): ?>
+    <input type="hidden" name="id" value="<?= $detail['id'] ?>">">
+    <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
+    <input type="hidden" name="quantity" value="1">
+
     <div class="row g-4">
       <!-- Product Details Section -->
       <div class="col-md-6 h-75">
@@ -12,16 +17,12 @@
           <p>Người bán: <b>admin123</b></p>
           <p>Mô tả sản phẩm nếu có</p>
           <p>Mì trộn trứng + xúc xích" là sự kết hợp hoàn hảo giữa mì trộn dai ngon, trứng chiên mềm mịn, và xúc xích đậm đà hương vị. Mỗi phần mì được chế biến với công thức đặc biệt, thêm vào rau xanh tươi ngon, tạo nên bữa ăn vừa ngon miệng vừa bổ dưỡng. Đây là lựa chọn lý tưởng cho bữa sáng, bữa trưa, hoặc bữa tối nhẹ nhàng. Thưởng thức ngay để cảm nhận hương vị tuyệt vời!</p>
-          <div class="d-flex align-items-center mb-3">
-            <button class="btn btn-outline-secondary me-2">-</button>
-            <input type="text" value="1" class="form-control text-center" style="width: 50px;">
-            <button class="btn btn-outline-secondary ms-2">+</button>
-          </div>
-          <button class="btn btn-custom w-100">Thêm vào giỏ hàng</button>
+          <input type="submit"name="addtocart" value="Thêm với giỏ hàng" class="btn btn-custom w-100">
         </div>
       </div>
     </div>
   <?php endif; ?>
+  </form>
   <!-- Suggested Products Section -->
   <div class="mt-5">
     <h2 class="text-center fw-bold mb-4 ">Bạn có thể thích</h2>

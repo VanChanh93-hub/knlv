@@ -1,6 +1,7 @@
 <?php
 // Bắt đầu session nếu cần
 session_start();
+ob_start();
 require "views/header.php";
 if(isset($_SESSION['thongbao'])){
     echo '<script>alert("'.$_SESSION['thongbao'].'")</script>';
