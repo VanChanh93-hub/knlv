@@ -2,10 +2,14 @@
 // Bắt đầu session nếu cần
 session_start();
 require "views/header.php";
-
+if(isset($_SESSION['thongbao'])){
+    echo '<script>alert("'.$_SESSION['thongbao'].'")</script>';
+    unset($_SESSION['thongbao']);
+}
 
 // Lấy tham số từ URL (vd: index.php?page=about)
 $act = isset($_GET['act']) ? $_GET['act'] : 'home';
+$id = isset($_GET['id']) ? $_GET['id'] : 'product';
 
 // Dùng switch-case để điều hướng
 switch ($act) {
@@ -18,12 +22,12 @@ switch ($act) {
     case 'product':
         require_once 'controllers/sanphamController.php';
         $controller = new sanphamController();
-        $controller->index();
+        $controller->index($id);
         break;
     case 'detail':
         require_once 'controllers/chitietsanphamController.php';
         $controller = new chitietsanphamController();
-        $controller->index();
+        $controller->index($id);
         break;
     case 'login':
         require_once 'controllers/dangnhapController.php';
@@ -46,7 +50,7 @@ switch ($act) {
             $controller = new thongtintaikhoanController();
             $controller->index();
         }else {
-            
+
             require_once 'controllers/homeController.php';
             $controller = new homeController();
             $controller->index();
@@ -57,19 +61,17 @@ switch ($act) {
         require_once 'controllers/giohangController.php';
         $controller = new giohangController();
         $controller->index();
-        
         break;
-     
-        
-        
-    case 'orderorder':
+    case 'order':
         require_once 'controllers/donhangController.php';
         $controller = new donhangController();
         $controller->index();
         break;
-
+    
     case 'logout':
         unset($_SESSION['user']);
+        $_SESSION['thongbao'] = "Đăng Xuất Thành Công";
+
         header('location:index.php');
         break;
     default:

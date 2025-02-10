@@ -3,9 +3,3 @@
         <p>Hãy khám phá website của tôi</p>
         <button>Khám Phá Ngay</button>
 </div>
-<?php
-        if(isset($login)){
-                var_dump($login);
-
-        }
-?>

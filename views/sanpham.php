@@ -3,13 +3,15 @@
   <h4 class="text-center pb-2">Danh mục món ăn</h4>
 
   <div class="category-container">
+  <?php foreach ($categories as $cate): ?>
     <div class="category-item">
-    <a href="" class="text-decoration-none text-dark">
-        <img src="public/img/categories/monchinh.png" alt="Món chính">
-        <p class="fw-semibold fs-5">Món chính</p>
-    </a>
+      <a href="index.php?act=product&id=<?= $cate['id'] ?>" class="text-decoration-none text-dark">
+        <img src="public/img/<?= $cate['image'] ?>" alt="Món chính">
+        <p class="fw-semibold fs-5"><?= $cate['name'] ?></p>
+      </a>
     </div>
-    <div class="category-item">
+    <?php endforeach; ?>
+    <!-- <div class="category-item">
       <img src="public/img/categories/th1.webp" alt="Ăn vặt">
       <p class="fw-semibold fs-5">Ăn vặt</p>
     </div>
@@ -20,24 +22,29 @@
     <div class="category-item">
       <img src="public/img/categories/khac.png" alt="Khác">
       <p class="fw-semibold fs-5">Khác</p>
-    </div>
+    </div> -->
   </div>
 
   <!-- Danh sách sản phẩm -->
   <h4 class="text-center pb-2">Danh sách sản phẩm</h4>
+  <?php if ($categoryMessage): ?>
+    <p class="text-center text-danger"><?= $categoryMessage ?></p>
+  <?php endif; ?>
   <div class="product-container">
-    <div class="product-item">
-        <a href="index.php?act=detail" class="text-decoration-none text-dark">
-            <img src="public/img/product/451132357_1870573133448334_52661.webp" alt="Bánh tráng trộn">
-            <div class="product-info">
-              <h3>Bánh tráng trộn</h3>
-              <p>10.000đ</p>
-              <a href="#" class="add-to-cart">Thêm vào giỏ hàng</a>
-            </div>
+    <?php foreach ($allProducts as $sp): ?>
+      <div class="product-item">
+        <a href="index.php?act=detail&id=<?= $sp['id'] ?>" class="text-decoration-none text-dark">
+          <img src="public/img/<?= $sp['image'] ?>" alt="Bánh tráng trộn">
+          <div class="product-info">
+            <h3><?= $sp['name'] ?></h3>
+            <p><?= $sp['price'] ?>đ</p>
+            <a href="#" class="add-to-cart">Thêm vào giỏ hàng</a>
+          </div>
         </a>
-    </div>
+      </div>
+    <?php endforeach; ?>
 
-    <div class="product-item">
+    <!-- <div class="product-item">
     <a href="index.php?act=detail" class="text-decoration-none text-dark">
         <img src="public/img/product/tratac.webp" alt="Trà tắc">
         <div class="product-info">
@@ -73,15 +80,8 @@
         <p>15.000đ</p>
         <a href="#" class="add-to-cart">Thêm vào giỏ hàng</a>
       </div>
-    </div>
+    </div> -->
 
-    <div class="product-item">
-      <img src="public/img/product/473758073_1316248983142363_76562.webp" alt="Cơm cháy">
-      <div class="product-info">
-        <h3>Cơm cháy</h3>
-        <p>20.000đ</p>
-        <a href="#" class="add-to-cart">Thêm vào giỏ hàng</a>
-      </div>
-    </div>
+
   </div>
 </main>

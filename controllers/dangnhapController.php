@@ -30,11 +30,11 @@ class dangnhapController
                 'address' => $login['address'],
                 'role' => $login['role'],
             ];
-            // $_SESSION['thongbao'] = "Đăng Nhập Thành Công";
+            $_SESSION['thongbao'] = "Đăng Nhập Thành Công";
             header("Location: ./index.php?act=home"); // Chuyển hướng về trang chính
             exit();
         } else {
-            $_SESSION['thongbao'] = "Tên đăng nhập hoặc mật khẩu không đúng";
+            $_SESSION['thongbaologin'] = "Tên đăng nhập hoặc mật khẩu không đúng";
             header("Location: ./index.php?act=login");
             exit();
         }
