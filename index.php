@@ -57,17 +57,17 @@ switch ($act) {
         require_once 'controllers/giohangController.php';
         $controller = new giohangController();
         $controller->index();
+        
         break;
+     
+        
+        
     case 'orderorder':
         require_once 'controllers/donhangController.php';
         $controller = new donhangController();
         $controller->index();
         break;
-    case 'cart':
-        require_once 'controllers/giohangController.php';
-        $controller = new giohangController();
-        $controller->index();
-        break;
+
     case 'logout':
         unset($_SESSION['user']);
         header('location:index.php');
