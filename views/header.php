@@ -30,12 +30,14 @@
                 </ul>
                 <div class="d-flex align-items-center">
                     <input type="search" class="search" placeholder="Tìm kiếm">
+                    <?php if(isset($_SESSION['user']['username'])): ?>
                     <a class="btn user text-white ms-3 p-2" href="index.php?act=account">
                         <?php
-                            echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] :"Username";
+                            echo $_SESSION['user']['username'];
                         ?>
-
                     </a>
+                    <?php endif;?>
+
                     <a class="nav-link ms-3" href="index.php?act=cart">
                         <i class="fa fa-shopping-bag fs-4"></i>
                     </a>

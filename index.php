@@ -11,7 +11,7 @@ if(isset($_SESSION['thongbao'])){
 // Lấy tham số từ URL (vd: index.php?page=about)
 $act = isset($_GET['act']) ? $_GET['act'] : 'home';
 $id = isset($_GET['id']) ? $_GET['id'] : 'product';
-
+// var_dump($_SESSION['user']['id']);
 // Dùng switch-case để điều hướng
 switch ($act) {
     case 'home':
@@ -68,7 +68,28 @@ switch ($act) {
         $controller = new donhangController();
         $controller->index();
         break;
-    
+    case 'history':
+        require_once 'controllers/lichsumuahangController.php';
+        $controller = new lichsumuahangController();
+        $controller->index();
+        break;
+    case 'update_address':
+        require_once 'controllers/lichsumuahangController.php';
+        $controller = new lichsumuahangController();
+        $controller->updateAddress();
+        break;
+    case 'update_status':
+        require_once 'controllers/lichsumuahangController.php';
+        $controller = new lichsumuahangController();
+        $controller->updateStatus();
+        break;
+
+    case 'cancel_order':
+        require_once 'controllers/lichsumuahangController.php';
+        $controller = new lichsumuahangController();
+        $controller->cancelOrder();
+        
+        break;
     case 'logout':
         unset($_SESSION['user']);
         $_SESSION['thongbao'] = "Đăng Xuất Thành Công";

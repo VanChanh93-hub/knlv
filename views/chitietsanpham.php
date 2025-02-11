@@ -1,7 +1,7 @@
 <main class="container-xl my-5 chitietsanpham">
   <form action="index.php?act=cart" method="post">
   <?php if($detail): ?>
-    <input type="hidden" name="id" value="<?= $detail['id'] ?>">">
+    <input type="hidden" name="id" value="<?= $detail['id'] ?>">
     <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
     <input type="hidden" name="quantity" value="1">
 

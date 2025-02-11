@@ -6,7 +6,7 @@
                 <h4 class="mt-3">Xin chào <strong>chanhV</strong></h4>
                 <nav class="profile-menu">
                     <a href="#">Thông tin tài khoản</a>
-                    <a href="#">Lịch sử mua hàng</a>
+                    <a href="index.php?act=history">Lịch sử mua hàng</a>
                     <a href="index.php?act=logout">Đăng xuất</a>
                 </nav>
             </div>
