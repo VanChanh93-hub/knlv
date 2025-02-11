@@ -7,6 +7,8 @@ class giohangController {
         $cart = new cart();
         $products = []; 
         if (isset($_POST['addtocart']) && $_POST['addtocart']) {
+            if (isset($_SESSION['user']['id'])) {
+
             $user_id = $_SESSION['user']['id'];
             if(isset($_POST['id']) ) {
                 $idProduct = $_POST['id'];
@@ -17,13 +19,19 @@ class giohangController {
             } else{
                 echo "khong tim thay san pham";
             }
+        }else {
+           header("Location: index.php?act=login");
         }
+    }
 
         if (isset($_SESSION['user']['id'])) {
             $user_id = $_SESSION['user']['id'];
             $dscart = $cart->getAllcartByUser($user_id);
+            $totalPrice = 0;
+
             foreach ($dscart as $item) {
                 $productInfo = $cart->getProductById($item['product_id']);
+                $totalPrice += $item['quantity'] * $productInfo['price'];
                 if ($productInfo) {
                     $products[] = array_merge($item, $productInfo);
                 }
@@ -56,9 +64,10 @@ class giohangController {
             header("Location: index.php?act=cart");
             exit();
         }
-
+        
         // Hiển thị view
         require_once 'views/giohang.php';
     }
 }
+
 ?>

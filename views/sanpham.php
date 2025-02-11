@@ -31,17 +31,25 @@
     <p class="text-center text-danger"><?= $categoryMessage ?></p>
   <?php endif; ?>
   <div class="product-container">
+
     <?php foreach ($allProducts as $sp): ?>
+      <form action="index.php?act=cart" method="post">
+
       <div class="product-item">
+      <input type="hidden" name="id" value="<?= $sp['id'] ?>">
+    <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
+    <input type="hidden" name="quantity" value="1">
         <a href="index.php?act=detail&id=<?= $sp['id'] ?>" class="text-decoration-none text-dark">
           <img src="public/img/<?= $sp['image'] ?>" alt="Bánh tráng trộn">
           <div class="product-info">
             <h3><?= $sp['name'] ?></h3>
             <p><?= $sp['price'] ?>đ</p>
-            <a href="#" class="add-to-cart">Thêm vào giỏ hàng</a>
-          </div>
+            <input type="submit"name="addtocart" value="Thêm với giỏ hàng" class="btn btn-custom w-100">
+            </div>
         </a>
       </div>
+      </form>
+
     <?php endforeach; ?>
 
     <!-- <div class="product-item">
