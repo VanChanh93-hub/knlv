@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 09, 2025 lúc 04:24 AM
+-- Thời gian đã tạo: Th2 11, 2025 lúc 10:55 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `knlv`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `quantity`) VALUES
+(10, 6, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -56,8 +76,20 @@ CREATE TABLE `orders` (
   `status` set('Thành công','Thất bại','Chờ xử lý','Đang xử lý') NOT NULL DEFAULT 'Chờ xử lý',
   `id_user` int(11) NOT NULL,
   `note` varchar(255) DEFAULT NULL,
-  `address` varchar(255) NOT NULL
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `seller_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `orderdate`, `totalprice`, `status`, `id_user`, `note`, `address`, `phone`, `fullname`, `seller_id`) VALUES
+(9, '2025-02-11 00:00:00', 30000, 'Thành công', 1, '123', '41/141/25/3 khu phố 7 Đường Trần Đai nghĩa', '', '', 6),
+(10, '2025-02-11 00:00:00', 30000, 'Chờ xử lý', 1, 'qưeq', '2thas', '', '', 6),
+(11, '2025-02-11 00:00:00', 1148000, 'Thất bại', 4, 'dd', 'dd', '0389330759', 'Nguyễn Thị Thuỷ Tiên', 0);
 
 -- --------------------------------------------------------
 
@@ -66,11 +98,22 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `orders_detail` (
-  `id_order` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
+  `order_id` int(10) NOT NULL,
+  `quantity` int(4) NOT NULL,
+  `id_order` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders_detail`
+--
+
+INSERT INTO `orders_detail` (`id_product`, `price`, `order_id`, `quantity`, `id_order`) VALUES
+(3, 10000, 9, 3, 1),
+(3, 10000, 10, 3, 2),
+(4, 18000, 11, 113, 3),
+(2, 18000, 11, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -84,18 +127,19 @@ CREATE TABLE `products` (
   `price` int(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `image` varchar(255) NOT NULL,
-  `id_category` int(11) NOT NULL
+  `id_category` int(11) NOT NULL,
+  `seller_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `description`, `image`, `id_category`) VALUES
-(1, 'Kimbap', 25000, NULL, 'product/kimbap.webp', 1),
-(2, 'Sandwich', 18000, NULL, 'product/sandwich.webp', 1),
-(3, 'Trà tắc', 10000, NULL, 'product/tratac.webp', 3),
-(4, 'Bánh tráng', 10000, NULL, 'product/banhtrang.webp', 2);
+INSERT INTO `products` (`id`, `name`, `price`, `description`, `image`, `id_category`, `seller_id`) VALUES
+(1, 'Kimbap', 25000, NULL, 'kimbap.webp', 1, 6),
+(2, 'Sandwich', 18000, NULL, 'sandwich.webp', 1, 6),
+(3, 'Trà tắc', 10000, NULL, 'tratac.webp', 3, 6),
+(4, 'Bánh tráng', 10000, NULL, 'banhtrang.webp', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -107,14 +151,33 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `phone` int(10) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `phone`, `address`, `role`, `password`) VALUES
+(1, 'light81', 'vuilachinhmvp@gmail.com', '946698712', 'đường Quang Trung', 0, 'Ttoan@81'),
+(4, 'bealonvn', 'vanbao@gmail.com', '0', '', 0, 'Ttoan@81'),
+(5, 'chanh', 'huychanh01@gmail.com', '09123123123', '123123', 1, '123456'),
+(6, 'thuytien', 'tiennttps39163@gmail.com', '047224444', 'sđjd', 1, 'Thuytien965002@');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Chỉ mục cho bảng `categories`
@@ -127,21 +190,24 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `seller_id` (`seller_id`);
 
 --
 -- Chỉ mục cho bảng `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  ADD PRIMARY KEY (`id_order`,`id_product`),
-  ADD KEY `id_product` (`id_product`);
+  ADD PRIMARY KEY (`id_order`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `order_id` (`order_id`);
 
 --
 -- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_category` (`id_category`);
+  ADD KEY `id_category` (`id_category`),
+  ADD KEY `user_id` (`seller_id`);
 
 --
 -- Chỉ mục cho bảng `user`
@@ -154,6 +220,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
@@ -163,23 +235,36 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT cho bảng `orders_detail`
+--
+ALTER TABLE `orders_detail`
+  MODIFY `id_order` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Các ràng buộc cho bảng `orders`
@@ -191,14 +276,15 @@ ALTER TABLE `orders`
 -- Các ràng buộc cho bảng `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  ADD CONSTRAINT `orders_detail_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id`),
-  ADD CONSTRAINT `orders_detail_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `orders_detail_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `orders_detail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 --
 -- Các ràng buộc cho bảng `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`);
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`),
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`seller_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

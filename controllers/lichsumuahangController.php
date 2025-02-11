@@ -10,8 +10,19 @@ class lichsumuahangController {
 
     public function index() {
         $user_id = $_SESSION['user']['id'];
-        $orderHistory = $this->model->getOrder($user_id);
-        
+        $role = $_SESSION['user']['role']; // Kiểm tra role của user
+        $orderHistory = [];
+
+        if ($role == 0) { // Người mua
+            $orderHistory = $this->model->getOrder($user_id);
+        } elseif ($role == 1) { // Người bán
+            $orderHistory = $this->model->getOrderHistoryBySeller($user_id);
+        } else {
+            $_SESSION['thongbao'] = "Vai trò không hợp lệ!";
+            header("Location: index.php");
+            exit();
+        }
+
         require_once 'views/lichsumuahang.php';
     }
 

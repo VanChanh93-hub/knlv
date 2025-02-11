@@ -23,7 +23,7 @@ class sanphamModel
     if ($category) {
         // Lấy sản phẩm có cùng category_id nhưng không bao gồm sản phẩm hiện tại
         $sql = "SELECT * FROM products WHERE id_category = ? AND id != ? LIMIT 4";
-        return $this->sanpham->getAll($sql, $category['id_category'], $id);
+        return $this->sanpham->getAll($sql, [$category['id_category'], $id]);
     }
 
    

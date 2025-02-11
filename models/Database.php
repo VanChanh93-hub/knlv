@@ -19,23 +19,30 @@ class Database
     }
   }
 
-  public function query($sql, $param = [])
-  {
-    $stmt = $this->pdo->prepare($sql);
-    if ($param) {
-      $stmt->execute($param);
-    } else {
-      $stmt->execute();
+  public function query($sql, $params = []) {
+    try {
+        $stmt = $this->pdo->prepare($sql);
+
+        // Ép tham số về dạng mảng nếu cần
+        if (!is_array($params)) {
+            $params = [$params];
+        }
+
+        $stmt->execute($params);
+        return $stmt;
+    } catch (PDOException $e) {
+        throw new PDOException($e->getMessage());
     }
-    return $stmt;
-  }
+}
+
+
   // getAll($sql, $MaTK, $MaDM,....)
-  public function getAll($sql)
-  {
-    $param = array_slice(func_get_args(), 1);
-    $stmt = $this->query($sql, $param);
+  public function getAll($sql, $params = []) {
+    // Truyền $params dưới dạng mảng
+    $stmt = $this->query($sql, $params);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
+}
+
 
   public function getOne($sql,)
   {

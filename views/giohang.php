@@ -7,7 +7,7 @@
                     <p class="fw-semibold">Bạn đang có <strong class="text-danger"><?php echo count($products); ?> sản phẩm</strong> trong giỏ hàng</p>
                     <?php foreach ($products as $product) { ?>
                         <div class="cart-item d-flex align-items-center p-3 border rounded mb-3 bg-light">
-                            <img src="public/img/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" class="img-thumbnail me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                            <img src="public/img/product/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" class="img-thumbnail me-3" style="width: 80px; height: 80px; object-fit: cover;">
                             <div class="item-details flex-grow-1">
                                 <h5 class="fw-bold text-dark m-0"><?= $product['name'] ?></h5>
                                 <p class="text-muted small m-0">Giá: <span class="fw-bold text-danger"><?= number_format($product['price']) ?> ₫</span></p>

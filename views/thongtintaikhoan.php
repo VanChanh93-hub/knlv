@@ -5,8 +5,13 @@
                 <div class="profile-avatar">CV</div>
                 <h4 class="mt-3">Xin chào <strong>chanhV</strong></h4>
                 <nav class="profile-menu">
-                    <a href="#">Thông tin tài khoản</a>
+                    <a href="index.php?act=account">Thông tin tài khoản</a>
+                    <?php if($_SESSION['user']['role'] == 0): ?>
                     <a href="index.php?act=history">Lịch sử mua hàng</a>
+                    <?php elseif($_SESSION['user']['role'] == 1):?>
+                    <a href="index.php?act=history">Lịch sử bán hàng</a>
+                    <a href="index.php?act=admin_product">Danh sách sản phẩm của bạn</a>
+                    <?php endif; ?>
                     <a href="index.php?act=logout">Đăng xuất</a>
                 </nav>
             </div>

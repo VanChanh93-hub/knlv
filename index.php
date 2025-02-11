@@ -25,6 +25,29 @@ switch ($act) {
         $controller = new sanphamController();
         $controller->index($id);
         break;
+
+    case 'admin_product':
+        require_once 'controllers/sanphamController.php';
+        $controller = new sanphamController();
+        $controller->listproduct();
+        break;
+
+    case 'addproduct':
+        require_once 'controllers/sanphamController.php';
+        $controller = new sanphamController();
+        $controller->add();
+        break;
+
+    case 'delete':
+        require_once 'controllers/sanphamController.php';
+        $controller = new sanphamController();
+        $controller->delete();
+        break;
+    case 'edit':
+        require_once 'controllers/sanphamController.php';
+        $controller = new sanphamController();
+        $controller->edit();
+        break;
     case 'detail':
         require_once 'controllers/chitietsanphamController.php';
         $controller = new chitietsanphamController();

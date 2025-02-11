@@ -124,7 +124,7 @@
                                 <h6>Chi tiết đơn hàng:</h6>
                                 <?php foreach ($orders as $item) : ?>
                                     <div class="d-flex align-items-center mb-3">
-                                        <img src="public/img/<?=$item['image']?>" alt="Sản phẩm" class="order-image" style="width: 50px; height: 50px; margin-right: 10px;">
+                                        <img src="public/img/product/<?=$item['image']?>" alt="Sản phẩm" class="order-image" style="width: 50px; height: 50px; margin-right: 10px;">
                                         <div>
                                             <p><strong>Tên: <?= $item['name'] ?></strong></p>
                                             <p>Giá: <?= number_format($item['product_price'], 0, ',', '.') ?> đ</p>

@@ -24,9 +24,10 @@
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=contact">Liên hệ</a></li>
 
 
-
-                    <li class="nav-item me-3"><a class="nav-link" href="index.php?act=signup">Đăng ký</a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="index.php?act=login">Đăng nhập</a></li>
+                    <?php if(!isset($_SESSION['user'])):?>
+                        <li class="nav-item me-3"><a class="nav-link" href="index.php?act=signup">Đăng ký</a></li>
+                        <li class="nav-item me-3"><a class="nav-link" href="index.php?act=login">Đăng nhập</a></li>
+                    <?php endif; ?>
                 </ul>
                 <div class="d-flex align-items-center">
                     <input type="search" class="search" placeholder="Tìm kiếm">

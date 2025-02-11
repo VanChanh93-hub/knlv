@@ -40,7 +40,7 @@
     <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
     <input type="hidden" name="quantity" value="1">
         <a href="index.php?act=detail&id=<?= $sp['id'] ?>" class="text-decoration-none text-dark">
-          <img src="public/img/<?= $sp['image'] ?>" alt="Bánh tráng trộn">
+          <img src="public/img/product/<?= $sp['image'] ?>" alt="Bánh tráng trộn">
           <div class="product-info">
             <h3><?= $sp['name'] ?></h3>
             <p><?= $sp['price'] ?>đ</p>

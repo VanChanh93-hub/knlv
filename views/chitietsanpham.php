@@ -8,7 +8,7 @@
     <div class="row g-4">
       <!-- Product Details Section -->
       <div class="col-md-6 h-75">
-        <img class="w-100 h-50" src="public/img/<?= $detail['image'] ?>" alt="Product Image" class="img-fluid rounded">
+        <img class="w-100 h-50" src="public/img/product/<?= $detail['image'] ?>" alt="Product Image" class="img-fluid rounded">
       </div>
       <div class="col-md-6">
         <div class="product-details">
@@ -31,7 +31,7 @@
     <?php foreach ($lienquan as $lq): ?>
       <div class="product-item">
       <a href="index.php?act=detail&id=<?= $lq['id'] ?>" class="text-decoration-none text-dark">
-        <img src="public/img/<?= $lq['image'] ?>" alt="Bánh tráng trộn">
+        <img src="public/img/product/<?= $lq['image'] ?>" alt="Bánh tráng trộn">
         <div class="product-info">
           <h3><?= $lq['name'] ?></h3>
           <p><?= $lq['price'] ?>đ</p>
@@ -40,7 +40,7 @@
       </div>
       <?php endforeach; ?>
       <!-- <div class="product-item">
-        <img src="public/img/product/tratac.webp" alt="Trà tắc">
+        <img src="public/img/product/product/tratac.webp" alt="Trà tắc">
         <div class="product-info">
           <h3>Trà tắc</h3>
           <p>10.000đ</p>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="product-item">
-        <img src="public/img/product/kimbap.webp" alt="Kimbap">
+        <img src="public/img/product/product/kimbap.webp" alt="Kimbap">
         <div class="product-info">
           <h3>Kimbap</h3>
           <p>25.000đ</p>
@@ -58,7 +58,7 @@
       </div>
 
       <div class="product-item">
-        <img src="public/img/product/sandwich.webp" alt="Sandwich">
+        <img src="public/img/product/product/sandwich.webp" alt="Sandwich">
         <div class="product-info">
           <h3>Sandwich</h3>
           <p>18.000đ</p>
