@@ -17,7 +17,7 @@
               <div class="extra-links">
                 <p><a href="#">Quên mật khẩu?</a></p>
                 <div class="text-center mb-3 text-dark">Hoặc</div>
-                <p><a href="#">Tạo tài khoản?</a></p>
+                <p><a href="index.php?act=signup">Tạo tài khoản?</a></p>
               </div>
             </form>
           </div>
