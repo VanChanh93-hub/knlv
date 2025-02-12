@@ -13,6 +13,8 @@ class dangnhapController
             $password = $_POST['password'] ?? '';  // Lấy mật khẩu từ POST
             $this->handleLogin($user, $password);
         }
+
+        
     }
 
     public function handleLogin($user, $password)
@@ -30,9 +32,16 @@ class dangnhapController
                 'address' => $login['address'],
                 'role' => $login['role'],
             ];
-            $_SESSION['thongbao'] = "Đăng Nhập Thành Công";
-            header("Location: ./index.php?act=home"); // Chuyển hướng về trang chính
-            exit();
+
+            
+            if($_SESSION['user']['role'] == 2){
+                header("Location: ./index.php?act=admin"); 
+                exit();
+            }else{
+                $_SESSION['thongbao'] = "Đăng Nhập Thành Công";
+                header("Location: ./index.php?act=home"); // Chuyển hướng về trang chính
+                exit();
+            }
         } else {
             $_SESSION['thongbaologin'] = "Tên đăng nhập hoặc mật khẩu không đúng";
             header("Location: ./index.php?act=login");

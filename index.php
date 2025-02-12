@@ -113,6 +113,13 @@ switch ($act) {
         $controller->cancelOrder();
         
         break;
+
+    case 'admin':
+        require_once 'controllers/adminController.php';
+        $controller = new adminController();
+        $controller->index();
+        
+        break;
     case 'logout':
         unset($_SESSION['user']);
         $_SESSION['thongbao'] = "Đăng Xuất Thành Công";
