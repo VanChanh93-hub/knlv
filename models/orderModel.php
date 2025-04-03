@@ -30,29 +30,6 @@ class OrderModel {
 
         return $this->order->getAll($sql, $id_user);
     }
-    public function getOrderHistoryBySeller($seller_id)
-    {
-        $sql = "SELECT 
-                    o.id AS order_id,
-                    o.orderdate,
-                    o.totalprice,
-                    o.status,
-                    o.note,
-                    o.address,
-                    od.id_product,
-                    od.price AS product_price,
-                    od.quantity AS product_quantity,
-                    p.image,
-                    p.name,
-                    p.seller_id
-                FROM `orders` o
-                INNER JOIN orders_detail od ON o.id = od.order_id
-                INNER JOIN products p ON p.id = od.id_product
-                WHERE p.seller_id = ?
-                ORDER BY o.orderdate DESC";
-
-        return $this->order->getAll($sql, $seller_id);
-    }
     public function updateAddress($order_id, $new_address)
     {
         $sql = "UPDATE orders SET address = ? WHERE id = ?";

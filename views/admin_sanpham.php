@@ -89,6 +89,10 @@
                         <label for="productImage" class="form-label">Ảnh</label>
                         <input type="file" class="form-control" id="productImage" name="image" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">Mô tả</label>
+                        <textarea col="5" rows="5" type="file" class="form-control" id="productImage" name="description" required></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="them" class="btn btn-primary">Thêm sản phẩm</button>
@@ -129,6 +133,10 @@
                     <div class="mb-3">
                         <label for="editProductImage-<?= $product['id']; ?>" class="form-label">Ảnh</label>
                         <input type="file" class="form-control" id="editProductImage-<?= $product['id']; ?>" name="image">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editProductPrice-<?= $product['id']; ?>" class="form-label">Mô tả</label>
+                        <textarea  col="5" rows="5" class="form-control" id="editProductPrice-<?= $product['id']; ?>" name="description" value="" required><?= $product['description']; ?></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

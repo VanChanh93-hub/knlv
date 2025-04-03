@@ -1,5 +1,6 @@
    .hero-section {
-       background: url(../img/banner/background.png) no-repeat center center/cover;
+       /* background: url(../img/banner/background.png) no-repeat center center/cover; */
+       background-color: #d3a165;
        color: white;
        text-align: center;
        padding: 150px 20px;

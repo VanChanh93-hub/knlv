@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./public/css/css.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -22,22 +24,30 @@
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=home">Trang chủ</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=product">Sản phẩm</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=contact">Liên hệ</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="index.php?act=admin_product">Admin</a></li>
 
 
-                    <?php if(!isset($_SESSION['user'])):?>
+                    <?php if (!isset($_SESSION['user'])): ?>
                         <li class="nav-item me-3"><a class="nav-link" href="index.php?act=signup">Đăng ký</a></li>
                         <li class="nav-item me-3"><a class="nav-link" href="index.php?act=login">Đăng nhập</a></li>
                     <?php endif; ?>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <input type="search" class="search" placeholder="Tìm kiếm">
-                    <?php if(isset($_SESSION['user']['username'])): ?>
-                    <a class="btn user text-white ms-3 p-2" href="index.php?act=account">
-                        <?php
+                    <form action="index.php?act=findProduct" class="d-flex" role="search" method="GET">
+                        <input type="hidden" name="act" value="findProduct" class="form-control me-2">
+                        <input type="search" name="find" class="search" placeholder="Tìm kiếm sản phẩm"
+                            value="<?= isset($_GET['find']) ? ($_GET['find']) : '' ?>">
+                        <button type="submit" class="btn btn-outline-warning">🔍</button>
+                    </form>
+
+
+                    <?php if (isset($_SESSION['user']['username'])): ?>
+                        <a class="btn user text-white ms-3 p-2" href="index.php?act=account">
+                            <?php
                             echo $_SESSION['user']['username'];
-                        ?>
-                    </a>
-                    <?php endif;?>
+                            ?>
+                        </a>
+                    <?php endif; ?>
 
                     <a class="nav-link ms-3" href="index.php?act=cart">
                         <i class="fa fa-shopping-bag fs-4"></i>

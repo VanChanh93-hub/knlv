@@ -3,15 +3,11 @@
           <aside class="col-md-3">
             <div class="profile-sidebar">
                 <div class="profile-avatar">CV</div>
-                <h4 class="mt-3">Xin chào <strong>chanhV</strong></h4>
+                <h4 class="mt-3">Xin chào <strong><?= $profile['username'] ?? '' ?></strong></h4>
                 <nav class="profile-menu">
                     <a href="index.php?act=account">Thông tin tài khoản</a>
-                    <?php if($_SESSION['user']['role'] == 0): ?>
                     <a href="index.php?act=history">Lịch sử mua hàng</a>
-                    <?php elseif($_SESSION['user']['role'] == 1):?>
-                    <a href="index.php?act=history">Lịch sử bán hàng</a>
-                    <a href="index.php?act=admin_product">Danh sách sản phẩm của bạn</a>
-                    <?php endif; ?>
+                    <a data-bs-toggle="modal" data-bs-target="#changePassModal" class="btn btn-link">Đổi mật khẩu</a>
                     <a href="index.php?act=logout">Đăng xuất</a>
                 </nav>
             </div>
@@ -50,3 +46,36 @@
             </div>
         </div>
     </div>
+
+  <!-- Modal đổi mật khẩu -->
+  <div class="modal fade" id="changePassModal" aria-hidden="true" aria-labelledby="loginLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 fw-bold w-100 text-center" id="registerLabel">Đổi mật khẩu</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="index.php?act=resetpass">
+            <div class="mb-3">
+              <label for="loginUsername" class="form-label">Mật khẩu cũ</label>
+              <input type="password" class="form-control" id="loginUsername" placeholder="Nhập username của bạn..." name="oldpassword" require>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Mật khẩu mới</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu..." name="password" require>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Nhập lại mật khẩu mới</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu..." name="password1" require>
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+              <button type="submit" class="btn btn-dark ps-5 pe-5" name="changepass">Cập nhật mật khẩu</button>
+              <a href="index.php?act=changepass" class="text-danger">Quên mật khẩu?</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>

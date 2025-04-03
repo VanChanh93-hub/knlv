@@ -18,13 +18,6 @@
               </div>
 
               <div class="form-group">
-                <label for="role">Loại đăng ký</label>
-                <select name="role">
-                    <option value="0">Đăng ký mua hàng</option>
-                    <option value="1">Đăng ký bán hàng</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <label for="password">Mật khẩu</label>
                 <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
               </div>

@@ -37,13 +37,13 @@
 
       <div class="product-item">
       <input type="hidden" name="id" value="<?= $sp['id'] ?>">
-    <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
-    <input type="hidden" name="quantity" value="1">
+      <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
+      <input type="hidden" name="quantity" value="1">
         <a href="index.php?act=detail&id=<?= $sp['id'] ?>" class="text-decoration-none text-dark">
           <img src="public/img/product/<?= $sp['image'] ?>" alt="Bánh tráng trộn">
           <div class="product-info">
             <h3><?= $sp['name'] ?></h3>
-            <p><?= $sp['price'] ?>đ</p>
+            <p><?= number_format($sp['price'],0,',','.') ?>đ</p>
             <input type="submit"name="addtocart" value="Thêm với giỏ hàng" class="btn btn-custom w-100">
             </div>
         </a>

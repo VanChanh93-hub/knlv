@@ -34,7 +34,7 @@ class dangnhapController
             ];
 
             
-            if($_SESSION['user']['role'] == 2){
+            if($_SESSION['user']['role'] == 1){
                 header("Location: ./index.php?act=admin"); 
                 exit();
             }else{

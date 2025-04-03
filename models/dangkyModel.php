@@ -7,11 +7,11 @@ class dangkyModel {
     {
         $this->user = new Database;
     }
-    public function addUser($username,$email,$role,$password){
+    public function addUser($username,$email,$password){
 
         $sql ="INSERT INTO user(username,email,phone,address,role,password)
-        VALUE (?,?,'','',?,?)";
-        return $this->user->insert($sql,$username,$email,$role,$password);
+        VALUE (?,?,'','',0,?)";
+        return $this->user->insert($sql,$username,$email,$password);
     }
 
     function issetEmail($email){

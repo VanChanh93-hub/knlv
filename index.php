@@ -1,10 +1,14 @@
 <?php
 // Bắt đầu session nếu cần
+
 session_start();
 ob_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require "views/header.php";
-if(isset($_SESSION['thongbao'])){
-    echo '<script>alert("'.$_SESSION['thongbao'].'")</script>';
+if (isset($_SESSION['thongbao'])) {
+    echo '<script>alert("' . $_SESSION['thongbao'] . '")</script>';
     unset($_SESSION['thongbao']);
 }
 
@@ -24,6 +28,12 @@ switch ($act) {
         require_once 'controllers/sanphamController.php';
         $controller = new sanphamController();
         $controller->index($id);
+        break;
+
+    case 'findProduct':
+        require_once 'controllers/sanphamController.php';
+        $controller = new sanphamController();
+        $controller->findProduct();
         break;
 
     case 'admin_product':
@@ -69,17 +79,26 @@ switch ($act) {
         $controller->index();
         break;
     case 'account':
-        if(isset($_SESSION['user'])){
+        if (isset($_SESSION['user'])) {
             require_once 'controllers/thongtintaikhoanController.php';
             $controller = new thongtintaikhoanController();
             $controller->index();
-        }else {
-
+        } else {
             require_once 'controllers/homeController.php';
             $controller = new homeController();
             $controller->index();
         }
+        break;
+    case 'resetpass':
+        require_once 'controllers/thongtintaikhoanController.php';
+        $controller = new thongtintaikhoanController();
+        $controller->changepass();
+        break;
 
+    case 'changepass':
+        require_once 'controllers/thongtintaikhoanController.php';
+        $controller = new thongtintaikhoanController();
+        $controller->resetpass();
         break;
     case 'cart':
         require_once 'controllers/giohangController.php';
@@ -101,24 +120,24 @@ switch ($act) {
         $controller = new lichsumuahangController();
         $controller->updateAddress();
         break;
-    case 'update_status':
-        require_once 'controllers/lichsumuahangController.php';
-        $controller = new lichsumuahangController();
-        $controller->updateStatus();
-        break;
+    // case 'update_status':
+    //     require_once 'controllers/lichsumuahangController.php';
+    //     $controller = new lichsumuahangController();
+    //     $controller->updateStatus();
+    //     break;
 
     case 'cancel_order':
         require_once 'controllers/lichsumuahangController.php';
         $controller = new lichsumuahangController();
         $controller->cancelOrder();
-        
+
         break;
 
     case 'admin':
         require_once 'controllers/adminController.php';
         $controller = new adminController();
         $controller->index();
-        
+
         break;
     case 'logout':
         unset($_SESSION['user']);
@@ -135,4 +154,3 @@ switch ($act) {
 
 
 require "views/footer.php";
-?>

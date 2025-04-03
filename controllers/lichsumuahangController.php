@@ -12,17 +12,7 @@ class lichsumuahangController {
         $user_id = $_SESSION['user']['id'];
         $role = $_SESSION['user']['role']; // Kiểm tra role của user
         $orderHistory = [];
-
-        if ($role == 0) { // Người mua
-            $orderHistory = $this->model->getOrder($user_id);
-        } elseif ($role == 1) { // Người bán
-            $orderHistory = $this->model->getOrderHistoryBySeller($user_id);
-        } else {
-            $_SESSION['thongbao'] = "Vai trò không hợp lệ!";
-            header("Location: index.php");
-            exit();
-        }
-
+        $orderHistory = $this->model->getOrder($user_id);
         require_once 'views/lichsumuahang.php';
     }
 
@@ -41,20 +31,20 @@ class lichsumuahangController {
         }
     }
 
-    public function updateStatus() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
-            $order_id = $_POST['order_id'];
-            $new_status = $_POST['new_status'];
+    // public function updateStatus() {
+    //     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
+    //         $order_id = $_POST['order_id'];
+    //         $new_status = $_POST['new_status'];
 
-            if ($this->model->updateStatus($order_id, $new_status)) {
-                $_SESSION['message'] = "Cập nhật trạng thái thành công!";
-            } else {
-                $_SESSION['error'] = "Cập nhật trạng thái thất bại!";
-            }
-            header("Location: index.php?act=history");
-            exit();
-        }
-    }
+    //         if ($this->model->updateStatus($order_id, $new_status)) {
+    //             $_SESSION['message'] = "Cập nhật trạng thái thành công!";
+    //         } else {
+    //             $_SESSION['error'] = "Cập nhật trạng thái thất bại!";
+    //         }
+    //         header("Location: index.php?act=history");
+    //         exit();
+    //     }
+    // }
 
     public function cancelOrder() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_order'])) {

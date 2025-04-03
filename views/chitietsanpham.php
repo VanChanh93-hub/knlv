@@ -1,6 +1,6 @@
 <main class="container-xl my-5 chitietsanpham">
   <form action="index.php?act=cart" method="post">
-  <?php if($detail): ?>
+  <?php if (!empty($detail) && is_array($detail)): ?>
     <input type="hidden" name="id" value="<?= $detail['id'] ?>">
     <input type="hidden" name="user_id" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
     <input type="hidden" name="quantity" value="1">
@@ -13,10 +13,9 @@
       <div class="col-md-6">
         <div class="product-details">
           <h1 class="product-title"><?= $detail['name'] ?></h1>
-          <p class="price"><?= $detail['price'] ?>đ</p>
-          <p>Người bán: <b>admin123</b></p>
+          <p class="price"><?= number_format($detail['price'],0,',','.') ?>đ</p>
           <p>Mô tả sản phẩm nếu có</p>
-          <p>Mì trộn trứng + xúc xích" là sự kết hợp hoàn hảo giữa mì trộn dai ngon, trứng chiên mềm mịn, và xúc xích đậm đà hương vị. Mỗi phần mì được chế biến với công thức đặc biệt, thêm vào rau xanh tươi ngon, tạo nên bữa ăn vừa ngon miệng vừa bổ dưỡng. Đây là lựa chọn lý tưởng cho bữa sáng, bữa trưa, hoặc bữa tối nhẹ nhàng. Thưởng thức ngay để cảm nhận hương vị tuyệt vời!</p>
+          <p><?= $detail['description']?></p>
           <input type="submit"name="addtocart" value="Thêm với giỏ hàng" class="btn btn-custom w-100">
         </div>
       </div>
@@ -34,7 +33,7 @@
         <img src="public/img/product/<?= $lq['image'] ?>" alt="Bánh tráng trộn">
         <div class="product-info">
           <h3><?= $lq['name'] ?></h3>
-          <p><?= $lq['price'] ?>đ</p>
+          <p><?= number_format($lq['price'],0,',','.') ?>đ</p>
           <a href="#" class="add-to-cart">Thêm vào giỏ hàng</a>
         </div>
       </div>

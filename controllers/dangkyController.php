@@ -12,7 +12,6 @@ class dangkyController {
     function handleSignup(){
         $username = isset($_POST['username']) ? trim($_POST['username']) : '';
         $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-        $role = isset($_POST['role']) ? trim($_POST['role']) : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirm = isset($_POST['confirm-password']) ? $_POST['confirm-password'] : '';
         $error =$this->validateForm($username,$email,$password,$confirm);
@@ -22,7 +21,7 @@ class dangkyController {
         }
 
         $this->user = new dangkyModel;
-        $result =$this->user->addUser($username,$email,$role,$password);
+        $result =$this->user->addUser($username,$email,$password);
         if ($result) {
             $_SESSION['thongbao']="Đăng ký thành công";
             header("Location: index.php?act=login");
