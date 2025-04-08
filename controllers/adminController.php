@@ -1,6 +1,7 @@
 <?php
 require_once 'models/adminModel.php';
 require_once 'models/sanphamModel.php';
+
 class adminController {
     public function index() {
         $adminModel = new adminModel();
@@ -18,6 +19,7 @@ class adminController {
         }
         
     }
+    
 }
 ?>
 

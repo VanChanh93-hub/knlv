@@ -58,6 +58,29 @@ switch ($act) {
         $controller = new sanphamController();
         $controller->edit();
         break;
+ //categories
+    case 'categories':
+        require_once 'controllers/danhmucController.php';
+        $controller = new danhmucController();
+        $controller->index();
+        break;
+    case 'add_category':
+        require_once 'controllers/danhmucController.php';
+        $controller = new danhmucController();
+        $controller->add();
+        break;
+    case 'edit_category':
+        require_once 'controllers/danhmucController.php';
+        $controller = new danhmucController();
+        $controller->edit();
+        break;
+    case 'delete_category':
+        require_once 'controllers/danhmucController.php';
+        $controller = new danhmucController();
+        $controller->delete();
+    break;
+//
+        
     case 'detail':
         require_once 'controllers/chitietsanphamController.php';
         $controller = new chitietsanphamController();

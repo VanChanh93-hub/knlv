@@ -25,7 +25,7 @@
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=product">Sản phẩm</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=contact">Liên hệ</a></li>
                     <li class="nav-item me-3"><a class="nav-link" href="index.php?act=admin_product">Admin</a></li>
-
+                    <li class="nav-item me-3"><a class="nav-link" href="index.php?act=categories">Danh Mục</a></li>
 
                     <?php if (!isset($_SESSION['user'])): ?>
                         <li class="nav-item me-3"><a class="nav-link" href="index.php?act=signup">Đăng ký</a></li>
